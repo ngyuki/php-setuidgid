@@ -1,7 +1,7 @@
 <?php
 /*
  * example)
- *   php setuidgid.php apache test.php 
+ *   sudo php setuidgid.php apache test.php
  *
  */
 
