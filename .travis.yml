@@ -5,9 +5,14 @@ php:
   - 5.4
   - 5.5
 
-script:
+before_install:
   - sudo groupadd -g 12345 piyo
   - sudo useradd -u 23456 -g piyo hoge
+
+before_script:
+  - composer install
+
+script:
   - sudo PHPUNIT_USER=hoge PHPUNIT_UID=23456 PHPUNIT_GID=12345 PHPUNIT_NONE=xxxxx phpunit --colors --coverage-text
 
 branches:
