@@ -1,0 +1,15 @@
+language: php
+
+php:
+  - 5.3
+  - 5.4
+  - 5.5
+
+script:
+  - sudo groupadd -g 12345 piyo
+  - sudo useradd -u 23456 -g piyo hoge
+  - sudo PHPUNIT_USER=hoge PHPUNIT_UID=23456 PHPUNIT_GID=12345 PHPUNIT_NONE=xxxxx phpunit --colors --coverage-text
+
+branches:
+  except:
+    - /\//
