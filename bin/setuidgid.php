@@ -11,4 +11,4 @@ foreach (array(
     }
 }
 
-ngyuki\SetUidGid\SetUidGid::main($argc, $argv);
+exit(ngyuki\SetUidGid\SetUidGid::main($argc, $argv));

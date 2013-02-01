@@ -42,7 +42,8 @@ class SetUidGidTest extends \PHPUnit_Framework_TestCase
         file_put_contents($script, "<?php echo 'sdfdaigangera'; touch(__FILE__ . '.txt'); ");
         
         $argv = array(__FILE__, $this->user, $script);
-        SetUidGid::main(count($argv), $argv);
+        $ret = SetUidGid::main(count($argv), $argv);
+        $this->assertSame(0, $ret);
         
         $this->assertEquals($this->gid, posix_getgid());
         $this->assertEquals($this->gid, posix_getegid());
@@ -54,6 +55,18 @@ class SetUidGidTest extends \PHPUnit_Framework_TestCase
         $stat = stat("$script.txt");
         $this->assertEquals($this->uid, $stat['uid']);
         $this->assertEquals($this->gid, $stat['gid']);
+    }
+    
+    /**
+     * @test
+     * @outputBuffering enabled
+     */
+    public function main_error()
+    {
+        $argv = array(__FILE__, $this->user);
+        $ret = SetUidGid::main(count($argv), $argv);
+        $this->assertSame(-1, $ret);
+        $this->assertEquals("Usage: php SetUidGid.php <user> <script.php>\n", ob_get_contents());
     }
     
     /**

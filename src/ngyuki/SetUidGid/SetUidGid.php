@@ -33,11 +33,21 @@ class SetUidGid
             self::setuidgid($user);
             
             require $script;
+            
+            return 0;
         }
         catch (\Exception $ex)
         {
-            fputs(STDERR, $ex->getMessage() . PHP_EOL);
-            exit(-1);
+            if (defined('STDERR') && is_resource(STDERR))
+            {
+                fputs(STDERR, $ex->getMessage() . PHP_EOL);
+            }
+            else
+            {
+                echo $ex->getMessage() . PHP_EOL;
+            }
+            
+            return -1;
         }
     }
     
