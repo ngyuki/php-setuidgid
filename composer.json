@@ -1,0 +1,25 @@
+{
+    "name": "ngyuki/php-setuidgid",
+    "type": "library",
+    "description": "php-setuidgid",
+    "keywords": [],
+    "homepage": "https://github.com/ngyuki/php-setuidgid",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "tsyk goto",
+            "email": "ngyuki.ts@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "bin": [
+        "bin/setuidgid"
+    ],
+    "autoload": {
+        "psr-0": {
+            "ngyuki\\SetUidGid": "src/"
+        }
+    }
+}
