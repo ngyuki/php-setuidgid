@@ -1,0 +1,14 @@
+{
+    "repositories": [
+        {
+            "packagist": false
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/ngyuki/php-setuidgid.git"
+        }
+    ],
+    "require": {
+        "ngyuki/php-setuidgid": "dev-master"
+    }
+}
