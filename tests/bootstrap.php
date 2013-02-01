@@ -4,8 +4,8 @@
 call_user_func(function () {
     
     $list = array(
-        'ngyuki\\Tests\\' => __DIR__ . DIRECTORY_SEPARATOR . 'tests' . DIRECTORY_SEPARATOR,
-        'ngyuki\\' => __DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR,
+        'ngyuki\\Tests\\' => dirname(__DIR__) . DIRECTORY_SEPARATOR . 'tests' . DIRECTORY_SEPARATOR,
+        'ngyuki\\' => dirname(__DIR__) . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR,
     );
     
     foreach ($list as $ns => $dir)
